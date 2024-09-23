@@ -9,7 +9,7 @@ export default function Layout( { children, home } ) {
       </Head>
       <header>
         <nav>
-          <a href="https://www.santarosa.edu">Visit SRJC</a>
+          <a href="https://www.liveeatlearn.com/list-of-fruits/">Types of Fruit</a>
         </nav>
       </header>
       <main>
@@ -22,7 +22,7 @@ export default function Layout( { children, home } ) {
         )
       }
       <footer>
-        <p>The footer</p>
+        <p>Types of fruit and their characteristics.</p>
       </footer>
     </div>
   );

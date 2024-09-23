@@ -5,6 +5,7 @@ import { getAllIds, getData } from '../lib/data';
 // - this name is defined by next.js
 export async function getStaticProps( { params } ) {
   const itemData = await getData(params.id);
+  // now itemData has snacks which may have an array of snacks!
   return {
     props: {
       itemData
@@ -28,10 +29,21 @@ export default function Entry( { itemData } ) {
     <Layout>
       <article className="card col-6">
         <div className="card-body">
-          <h5 className="card-title">{itemData.name}</h5>
-          <h6 className="card-subtitle mb-2 text-body-secondary">{itemData.phone}</h6>
+          <h4 className="card-title">{itemData.name}</h4>
+          <h5 className="card-subtitle mb-2 text-body-secondary">{itemData.phone}</h5>
           <p className="card-text">{itemData.birthdate}</p>
           <a href="#" className="card-link">{itemData.email}</a>
+          <h6>Characteristics</h6>
+          <ol>
+            {itemData.characteristic && itemData.characteristic.map(
+                ({id, characteristic}) => (
+                  <li key={id}>
+                    {characteristic}
+                  </li>
+                )
+              )
+            }
+          </ol>
         </div>
       </article>
     </Layout>
